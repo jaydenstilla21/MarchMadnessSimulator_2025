@@ -110,30 +110,30 @@ def check_correct(south, east, midwest, west, champ_matchup, champion, round_cou
                 
         case 1:
             #south region sweet 16
-            if south[0].name == "Alabama":
+            if south[0].name == "Auburn":
                 num_correct += 1
                 espn_score += 20
-            if south[1].name == "San Diego State":
+            if south[1].name == "Michigan":
                 num_correct+=1
                 espn_score += 20
-            if south[2].name == "Creighton":
+            if south[2].name == "Ole Miss":
                 num_correct+=1
                 espn_score += 20
-            if south[3].name == "Princeton":
+            if south[3].name == "Michigan State":
                 num_correct+=1
                 espn_score += 20
                 
             #east region sweet 16
-            if east[0].name == "Florida Atlantic":
+            if east[0].name == "Duke":
                 num_correct += 1
                 espn_score += 20
-            if east[1].name == "Tennessee":
+            if east[1].name == "Arizona":
                 num_correct += 1
                 espn_score += 20
-            if east[2].name == "Kansas State":
+            if east[2].name == "BYU":
                 num_correct+=1
                 espn_score += 20
-            if east[3].name == "Michigan State":
+            if east[3].name == "Alabama":
                 num_correct+=1
                 espn_score += 20
                 
@@ -141,27 +141,27 @@ def check_correct(south, east, midwest, west, champ_matchup, champion, round_cou
             if midwest[0].name == "Houston":
                 num_correct += 1
                 espn_score += 20
-            if midwest[1].name == "Miami":
+            if midwest[1].name == "Purdue":
                 num_correct += 1
                 espn_score += 20
-            if midwest[2].name == "Xavier":
+            if midwest[2].name == "Kentucky":
                 num_correct+=1
                 espn_score += 20
-            if midwest[3].name == "Texas":
+            if midwest[3].name == "Tennessee":
                 num_correct+=1
                 espn_score += 20
             
             #west region sweet 16    
-            if west[0].name == "Arkansas":
+            if west[0].name == "Florida":
                 num_correct += 1
                 espn_score += 20
-            if west[1].name == "UConn":
+            if west[1].name == "Maryland":
                 num_correct += 1
                 espn_score += 20
-            if west[2].name == "Gonzaga":
+            if west[2].name == "Texas Tech":
                 num_correct+=1
                 espn_score += 20
-            if west[3].name == "UCLA":
+            if west[3].name == "Arkansas":
                 num_correct+=1
                 espn_score += 20
         
