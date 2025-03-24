@@ -64,7 +64,7 @@ def sim_round_loud(region, round_counter):
 correct_list = []
 champs_list = []
 champ_matchup = []
-champion = Team("x" ,1,1, 10.0, 0.0, 0, 0.0, 0, 0.0, 0)
+champion = Team("x" ,1,1, 10.0, 0.0, 0, 0.0, 0, 0.0, 0, .000, 0 )
 espn_score_list = []
 num_sims = int(input("Enter number of simulations: "))
 for q in range(0,num_sims):
@@ -86,7 +86,7 @@ for q in range(0,num_sims):
             east = sim_round(east, 5)
             midwest = sim_round(midwest, 5)
             west = sim_round(west, 5)
-        if round_counter == 0:
+        if round_counter == 0 or round_counter==1:
             num_correct += check_correct(south, east, midwest, west, champ_matchup, champion, round_counter)
         espn_score += get_espn_score(south, east, midwest, west, round_counter)
         round_counter = round_counter+1
@@ -103,7 +103,7 @@ for q in range(0,num_sims):
        
     champion = final_four[0]
     #num_correct = int(round(100 * round(num_correct/60, 2), 0))
-    num_correct = int(round(100 * round(num_correct/32, 2), 0))
+    num_correct = int(round(100 * round(num_correct/48, 2), 0))
     
     correct_list.append(num_correct)
     champs_list.append(champion.name)

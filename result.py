@@ -70,16 +70,28 @@ def calcStrength(team, opponent):
     # s.append(Team("UC San Diego", 12, 35, 15.1, 1.131, 23, 0.912, 4, 0.2, 118))
     
     if team.sos > opponent.sos:
-        strength = (50/team.net) + (team.avg_margin/5) + ((team.sos-opponent.sos)/3)
+        strength = (50/team.net) + (team.avg_margin/5) + ((team.sos-opponent.sos)/1.5)
     else:
         strength = (50/team.net) + (team.avg_margin/5)
     
     if team.off_efficiency_rank <= 25 and team.off_efficiency_rank <= 25:
-        strength += 7
+        strength += 5
     elif team.off_efficiency_rank <= 40 and team.off_efficiency_rank <= 40:
         strength +=3
     elif team.off_efficiency_rank <= 50 and team.off_efficiency_rank <= 50:
         strength +=1
+
+    if team.three_point_percent >= .380:
+        strength += 1
+    elif team.three_point_percent >= .370:
+        strength +=.75
+    elif team.three_point_percent >= .360:
+        strength +=.50
+    elif team.three_point_percent >= .350:
+        strength +=.25
+    if team.three_point_percent < .320:
+        strength -=.5
+    
     
     if team.seed == 1:
         strength +=8
