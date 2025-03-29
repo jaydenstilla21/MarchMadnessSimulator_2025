@@ -95,4 +95,26 @@ def create_west():
     w.append(Team("Omaha", 15, 160, 1.8, 1.100, 59, 1.075, 277, -3.0, 203, .367, 44))
     return w
     
-    
+def create_south_elite8():
+   s = []
+   s.append(Team("Auburn",1, 2, 14.2, 1.182, 3, 0.981, 53, 16.4, 1, .368, 40))
+   s.append(Team("Michigan State",2,11, 10.9, 1.102, 56, 0.948, 15, 12.4, 18, .308, 327))
+   return s
+
+def create_east_elite8():
+   e = []
+   e.append(Team("Duke",1, 1, 20.8, 1.211, 1, 0.907, 3, 12.9, 14, .377, 20))
+   e.append(Team("Alabama",2, 6, 9.7, 1.156, 9, 1.033, 170, 16.0, 2, .350, 114))
+   return e
+
+def create_midwest_elite8():
+   mw = []
+   mw.append(Team("Houston",1, 3, 15.7, 1.131, 24, 0.891, 1, 14.3, 5, .398, 4))
+   mw.append(Team("Tennessee",2, 5, 11.7, 1.106, 50, 0.932, 9, 14.6, 4, .340, 166))
+   return mw
+
+def create_west_elite8():
+    w = []
+    w.append(Team("Florida",1, 4, 16.2, 1.178, 6, 0.955, 20, 14.3, 6, .355, 84))
+    w.append(Team("Texas Tech",3, 7, 13.3, 1.172, 7, 0.979, 50, 12.5, 16, .379, 19))
+    return w

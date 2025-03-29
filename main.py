@@ -16,6 +16,14 @@ final_four = []
 def most_common(lst):
     return max(set(lst), key=lst.count)
 
+def create_champs_dict(champs_list, num_sims):
+    champ_list_unique = set(champs_list)
+    champs_dict = {}
+    for team in champ_list_unique:
+        #champ_percent = int(100 * (champs_list.count(team) / num_sims))
+        champs_dict[team] = champs_list.count(team)
+    return champs_dict
+
 def sim_round(region, round_counter):
     next_round = []
     for i in range(0,len(region)-1,2):
@@ -66,13 +74,24 @@ champs_list = []
 champ_matchup = []
 champion = Team("x" ,1,1, 10.0, 0.0, 0, 0.0, 0, 0.0, 0, .000, 0 )
 espn_score_list = []
+
+round_selector = int(input("Enter round you want to start at: "))
+
 num_sims = int(input("Enter number of simulations: "))
 for q in range(0,num_sims):
-    south = create_south()
-    east = create_east()
-    midwest = create_midwest()
-    west = create_west()
-    round_counter = 0
+    if round_selector == 3:
+        south = create_south_elite8()
+        east = create_east_elite8()
+        midwest = create_midwest_elite8()
+        west = create_west_elite8()
+    else:
+        south = create_south()
+        east = create_east()
+        midwest = create_midwest()
+        west = create_west()
+
+    #round_counter = 0
+    round_counter = round_selector
     num_correct = 0
     espn_score = 0
     while len(south) > 1:
@@ -86,7 +105,7 @@ for q in range(0,num_sims):
             east = sim_round(east, 5)
             midwest = sim_round(midwest, 5)
             west = sim_round(west, 5)
-        if round_counter == 0 or round_counter==1:
+        if round_counter <=2:
             num_correct += check_correct(south, east, midwest, west, champ_matchup, champion, round_counter)
         espn_score += get_espn_score(south, east, midwest, west, round_counter)
         round_counter = round_counter+1
@@ -103,7 +122,7 @@ for q in range(0,num_sims):
        
     champion = final_four[0]
     #num_correct = int(round(100 * round(num_correct/60, 2), 0))
-    num_correct = int(round(100 * round(num_correct/48, 2), 0))
+    num_correct = int(round(100 * round(num_correct/56, 2), 0))
     
     correct_list.append(num_correct)
     champs_list.append(champion.name)
@@ -113,9 +132,11 @@ for q in range(0,num_sims):
 
 correct_avg = int(round(sum(correct_list)/len(correct_list), 0))
 espn_score_avg = int(round((sum(espn_score_list)/len(espn_score_list))/10)) * 10
-most_champs = most_common(champs_list)
-num_most_champs = champs_list.count(most_champs)
-most_champs_percent = int(100*(num_most_champs/num_sims))
+#most_champs = most_common(champs_list)
+#num_most_champs = champs_list.count(most_champs)
+#most_champs_percent = int(100*(num_most_champs/num_sims))
+
+champs_dict = create_champs_dict(champs_list, num_sims)
 
 
 #print("Out of " + str(num_sims) + " simulations the highest ESPN Tournament Challenge Score was " + str(max(espn_score_list)))
@@ -123,6 +144,8 @@ most_champs_percent = int(100*(num_most_champs/num_sims))
 print("Out of " + str(num_sims) + " simulations the highest percent of games correct in a single bracket was "\
 + str(max(correct_list)) + "%")
 #print("Out of " + str(num_sims) + " simulations the average percent of game correct was " + str(correct_avg) + "%")
-print("Out of " + str(num_sims) + " simulations the most common national champion was " + str(most_champs) + " (" + str(most_champs_percent) + "%)")
+for key, value in sorted(champs_dict.items(), key=lambda item: item[1]):
+    print(f"{key}: {value}")
+#print("Out of " + str(num_sims) + " simulations the most common national champion was " + str(most_champs) + " (" + str(most_champs_percent) + "%)")
 
     
