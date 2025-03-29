@@ -167,34 +167,34 @@ def check_correct(south, east, midwest, west, champ_matchup, champion, round_cou
         
         case 2:
             #south region elite 8
-            if south[0].name == "San Diego State":
+            if south[0].name == "Auburn":
                 num_correct += 1
                 espn_score += 40
-            if south[1].name == "Creighton":
+            if south[1].name == "Michigan State":
                 num_correct += 1
                 espn_score += 40
             
             #east region elite 8
-            if east[0].name == "Florida Atlantic":
+            if east[0].name == "Duke":
                 num_correct += 1
                 espn_score += 40
-            if east[1].name == "Kansas State":
+            if east[1].name == "Alabama":
                 num_correct +=1
                 espn_score += 40
             
             #midwest region elite 8
-            if midwest[0].name == "Miami":
+            if midwest[0].name == "Houston":
                 num_correct +=1
                 espn_score += 40
-            if midwest[1].name == "Texas":
+            if midwest[1].name == "Tennessee":
                 num_correct +=1
                 espn_score += 40
                 
             #west region elite 8
-            if west[0].name == "Uconn":
+            if west[0].name == "Florida":
                 num_correct +=1
                 espn_score += 40
-            if west[1].name == "Gonzaga":
+            if west[1].name == "Texas Tech":
                 num_correct +=1
                 espn_score += 40
           
