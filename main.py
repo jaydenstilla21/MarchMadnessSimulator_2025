@@ -49,6 +49,8 @@ def sim_round_loud(region, round_counter):
             print("ELITE EIGHT")
         case 4:
             print("FINAL FOUR")
+        case 5:
+            print("NATIONAL CHAMPIONSHIP")
         case _:
             pass
     next_round = []
@@ -72,23 +74,43 @@ def sim_round_loud(region, round_counter):
 correct_list = []
 champs_list = []
 champ_matchup = []
-champion = Team("x" ,1,1, 10.0, 0.0, 0, 0.0, 0, 0.0, 0, .000, 0 )
+champion = Team()
 espn_score_list = []
-
-round_selector = int(input("Enter round you want to start at: "))
+while True: 
+    print(" [0] Round of 64 \n [1] Round of 32 \n [2] Sweet Sixteen \n [3] Elite 8 \n [4] Final Four")
+    round_selector = int(input("Enter round you want to start at: "))
+    if round_selector in range(0,5):
+        break
+    print("\nPlease enter a valid value")
 
 num_sims = int(input("Enter number of simulations: "))
 for q in range(0,num_sims):
-    if round_selector == 3:
-        south = create_south_elite8()
-        east = create_east_elite8()
-        midwest = create_midwest_elite8()
-        west = create_west_elite8()
-    else:
-        south = create_south()
-        east = create_east()
-        midwest = create_midwest()
-        west = create_west()
+    match round_selector:
+        case 0:
+            south = create_south()
+            east = create_east()
+            midwest = create_midwest()
+            west = create_west()
+        case 1:
+            south = create_south_round32()
+            east = create_east_round32()
+            midwest = create_midwest_round32()
+            west = create_west_round32()
+        case 2:
+            south = create_south_sweet16()
+            east = create_east_sweet16()
+            midwest = create_midwest_sweet16()
+            west = create_west_sweet16()
+        case 3:
+            south = create_south_elite8()
+            east = create_east_elite8()
+            midwest = create_midwest_elite8()
+            west = create_west_elite8()
+        case _:
+            south = create_south()
+            east = create_east()
+            midwest = create_midwest()
+            west = create_west()
 
     #round_counter = 0
     round_counter = round_selector
@@ -97,9 +119,9 @@ for q in range(0,num_sims):
     while len(south) > 1:
         if num_sims == 1:
             south = sim_round_loud(south, round_counter)
-            east = sim_round_loud(east, 5)
-            midwest = sim_round_loud(midwest, 5)
-            west = sim_round_loud(west, 5)
+            east = sim_round_loud(east, 6)
+            midwest = sim_round_loud(midwest, 6)
+            west = sim_round_loud(west, 6)
         else:
             south = sim_round(south, round_counter)
             east = sim_round(east, 5)
