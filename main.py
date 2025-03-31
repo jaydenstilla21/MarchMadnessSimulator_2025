@@ -85,6 +85,10 @@ while True:
 
 num_sims = int(input("Enter number of simulations: "))
 for q in range(0,num_sims):
+    #round_counter = 0
+    round_counter = round_selector
+    num_correct = 0
+    espn_score = 0
     match round_selector:
         case 0:
             south = create_south()
@@ -106,16 +110,27 @@ for q in range(0,num_sims):
             east = create_east_elite8()
             midwest = create_midwest_elite8()
             west = create_west_elite8()
+        case 4:
+            south = create_south_final4()
+            east = create_east_final4()
+            midwest = create_midwest_final4()
+            west = create_west_final4()
+            final_four = [south[0], west[0], east[0], midwest[0]]
+            if num_sims == 1:
+                final_four = sim_round_loud(final_four, 4)
+                num_correct += check_correct(south, east, midwest, west, final_four, champion, 4)
+                final_four = sim_round_loud(final_four, 5)
+                num_correct += check_correct(south, east, midwest, west, champ_matchup, final_four[0], 5)
+            else:
+                final_four = sim_round(final_four, 4)
+                final_four = sim_round(final_four, 5)
         case _:
             south = create_south()
             east = create_east()
             midwest = create_midwest()
             west = create_west()
 
-    #round_counter = 0
-    round_counter = round_selector
-    num_correct = 0
-    espn_score = 0
+
     while len(south) > 1:
         if num_sims == 1:
             south = sim_round_loud(south, round_counter)
@@ -124,9 +139,9 @@ for q in range(0,num_sims):
             west = sim_round_loud(west, 6)
         else:
             south = sim_round(south, round_counter)
-            east = sim_round(east, 5)
-            midwest = sim_round(midwest, 5)
-            west = sim_round(west, 5)
+            east = sim_round(east, 6)
+            midwest = sim_round(midwest, 6)
+            west = sim_round(west, 6)
         if round_counter <=2:
             num_correct += check_correct(south, east, midwest, west, champ_matchup, champion, round_counter)
         espn_score += get_espn_score(south, east, midwest, west, round_counter)

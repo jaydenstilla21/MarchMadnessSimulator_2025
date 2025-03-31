@@ -271,3 +271,23 @@ def create_west_elite8():
     w.append(Florida)
     w.append(TexasTech)
     return w
+
+def create_south_final4():
+   s = []
+   s.append(Auburn)
+   return s
+
+def create_east_final4():
+   e = []
+   e.append(Duke)
+   return e
+
+def create_midwest_final4():
+   mw = []
+   mw.append(Houston)
+   return mw
+
+def create_west_final4():
+    w = []
+    w.append(Florida)
+    return w
