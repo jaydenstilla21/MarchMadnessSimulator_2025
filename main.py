@@ -77,8 +77,9 @@ champ_matchup = []
 champion = Team()
 espn_score_list = []
 while True: 
-    print(" [0] Round of 64 \n [1] Round of 32 \n [2] Sweet Sixteen \n [3] Elite 8 \n [4] Final Four \n [5] National Championship")
-    round_selector = int(input("Enter round you want to start at: "))
+    #print(" [0] Round of 64 \n [1] Round of 32 \n [2] Sweet Sixteen \n [3] Elite 8 \n [4] Final Four \n [5] National Championship")
+    # round_selector = int(input("Enter round you want to start at: "))
+    round_selector = 0
     if round_selector in range(0,6):
         break
     print("\nPlease enter a valid value")
