@@ -291,3 +291,9 @@ def create_west_final4():
     w = []
     w.append(Florida)
     return w
+
+def create_champ_game():
+    list = []
+    list.append(Florida)
+    list.append(Houston)
+    return list

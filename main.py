@@ -77,9 +77,9 @@ champ_matchup = []
 champion = Team()
 espn_score_list = []
 while True: 
-    print(" [0] Round of 64 \n [1] Round of 32 \n [2] Sweet Sixteen \n [3] Elite 8 \n [4] Final Four")
+    print(" [0] Round of 64 \n [1] Round of 32 \n [2] Sweet Sixteen \n [3] Elite 8 \n [4] Final Four \n [5] National Championship")
     round_selector = int(input("Enter round you want to start at: "))
-    if round_selector in range(0,5):
+    if round_selector in range(0,6):
         break
     print("\nPlease enter a valid value")
 
@@ -124,6 +124,22 @@ for q in range(0,num_sims):
             else:
                 final_four = sim_round(final_four, 4)
                 final_four = sim_round(final_four, 5)
+        case 5:
+            final_four = create_champ_game()
+            if num_sims == 1:
+                final_four = sim_round_loud(final_four, 5)
+            else:
+                final_four = sim_round(final_four, 5)
+            champion = final_four[0]
+            #num_correct = int(round(100 * round(num_correct/60, 2), 0))
+            num_correct = int(round(100 * round(num_correct/56, 2), 0))
+            correct_list.append(num_correct)
+            champs_list.append(champion.name)
+            espn_score_list.append(espn_score)
+            print(champion.name + " has won the national championship as the " + str(champion.seed) + " seed!")
+            continue
+                        
+
         case _:
             south = create_south()
             east = create_east()

@@ -15,8 +15,12 @@ def get_result(team1, team2, round_counter):
         print(team1.name)
     if prob2<0:
         print(team2.name)
-    print(team1.name + ": " + str(prob1))
-    return matchup[numpy.random.choice(numpy.arange(0,2), p=[prob1, prob2])]
+    #print(team1.name + ": " + str(prob1))
+    winner = matchup[numpy.random.choice(numpy.arange(0,2), p=[prob1, prob2])]
+    loser = matchup[0] if matchup[1] == winner else matchup[1]
+
+
+    return winner
     
     #round of 64
     if team1.seed == 1 and team2.seed == 16:
@@ -100,3 +104,6 @@ def calcStrength(team, opponent):
     
     return strength
     
+
+def CalcScore(winner, loser):
+    return
