@@ -150,15 +150,15 @@ for q in range(0,num_sims):
 
     while len(south) > 1:
         if num_sims == 1:
-            south = sim_round_loud(south, round_counter)
-            east = sim_round_loud(east, 6)
-            midwest = sim_round_loud(midwest, 6)
+            east = sim_round_loud(east, round_counter)
+            south = sim_round_loud(south, 6)
             west = sim_round_loud(west, 6)
+            midwest = sim_round_loud(midwest, 6)
         else:
-            south = sim_round(south, round_counter)
-            east = sim_round(east, 6)
-            midwest = sim_round(midwest, 6)
+            east = sim_round(east, round_counter)
+            south = sim_round(south, 6)
             west = sim_round(west, 6)
+            midwest = sim_round(midwest, 6)
         if round_counter <=2:
             num_correct += check_correct(south, east, midwest, west, champ_matchup, champion, round_counter)
         espn_score += get_espn_score(south, east, midwest, west, round_counter)
